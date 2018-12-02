@@ -7,7 +7,13 @@ describe('generator-sparktimus:app', () => {
   beforeAll(() => {
     return helpers
       .run(path.join(__dirname, '../generators/app'))
-      .withPrompts({ someAnswer: true });
+      .withPrompts({ hc: {
+        hadoopCucumber: true
+      } });
   });
+
+  it('some test', () => {
+    expect(true).toEqual(true)
+  })
 
 });
