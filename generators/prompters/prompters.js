@@ -1,6 +1,5 @@
 const _ = require('lodash')
 const validators = require('../validators/validators')
-const theme = require('../chalk_themes/chalk_theme')
 const stream = 'stream'
 const batch = 'batch'
 const natures = [stream, batch]
