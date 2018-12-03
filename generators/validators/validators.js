@@ -1,7 +1,7 @@
 const _ = require('lodash')
 const theme = require('../chalk_themes/chalk_theme')
 
-const versionRegex = /(\+)|(\d+\.\d+\.\d+(-SNAPSHOT)?)/
+const versionRegex = /(\+)|((\d+\.)+\d+(-SNAPSHOT)?)/
 const versionValidator = {
     id: 'version',
     validate(answer) {
