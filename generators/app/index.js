@@ -24,7 +24,7 @@ module.exports = class extends Generator {
     const answers = await _.reduce(_.slice(prompters, 1), (acc, prompter, index) => {
       return acc.then((answers) => prompter.run(this));
     }, _.head(prompters).run(this))
-
+    answers.appname = this.options.appname 
   }
 
   writing() {

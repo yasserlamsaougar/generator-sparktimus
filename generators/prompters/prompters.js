@@ -15,7 +15,7 @@ const components = {
         'orientdb'
     ]
 }
-const hadoopCucumberVersion = {
+const hadoopCucumberPrompter = {
     priority: 1,
     async run(generator) {
         generator.answers = _.merge(generator.answers, await generator.prompt([{
@@ -153,12 +153,26 @@ const componentsPrompter = {
             message: 'Which components are you planning to use',
             default: []
         }]))
-        generator.log(generator.answers)
+        return generator.answers
+    }
+}
+
+const projectGroupPrompter = {
+    priority: 0,
+    async run(generator) {
+        generator.answers = _.merge(generator.answers, await generator.prompt([{
+            type: 'input',
+            name: "core.group",
+            message: 'What is your project group',
+            default: `fr.edf.dco.edma.${generator.options.appname}`
+        }]))
+        return generator.answers
     }
 }
 
 module.exports = _.sortBy([
-    hadoopCucumberVersion,
+    hadoopCucumberPrompter,
+    projectGroupPrompter,
     scalaPrompter,
     sparkPrompter,
     javaPrompter,
